@@ -118,3 +118,4 @@ urllib3==1.26.14 \
     # via
     #   -r autopkg/requirements.txt
     #   requests
+GitPython
