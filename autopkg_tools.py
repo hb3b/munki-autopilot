@@ -23,7 +23,7 @@ for recipe in recipes:
     print(report_data)
 
     if 'summary_results' in report_data:
-        if 'munki_importer_summary_result' in report_data['summary_result']:
+        if 'munki_importer_summary_result' in report_data['summary_results']:
             package_name = report_data['summary_results']['munki_importer_summary_result']['data_rows'][0]['name']
             package_version = report_data['summary_results']['munki_importer_summary_result']['data_rows'][0]['version']
             package_info = report_data['summary_results']['munki_importer_summary_result']['data_rows'][0]['pkginfo_path']
