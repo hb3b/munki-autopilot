@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>local.munki.GoogleChromePkg</string>
+	<key>Input</key>
+	<dict>
+		<key>DERIVE_MIN_OS</key>
+		<string>YES</string>
+		<key>DOWNLOAD_URL</key>
+		<string>https://dl.google.com/chrome/mac/stable/accept_tos%3Dhttps%253A%252F%252Fwww.google.com%252Fintl%252Fen_ph%252Fchrome%252Fterms%252F%26_and_accept_tos%3Dhttps%253A%252F%252Fpolicies.google.com%252Fterms/googlechrome.pkg</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/Google</string>
+		<key>NAME</key>
+		<string>GoogleChrome</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>Google Chrome</string>
+			</array>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Chrome is a fast, simple, and secure web browser, built for the modern web.</string>
+			<key>developer</key>
+			<string>Google</string>
+			<key>display_name</key>
+			<string>Google Chrome</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.autopkg.munki.googlechromepkg</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict/>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.autopkg.download.googlechromepkg</key>
+			<dict>
+				<key>git_hash</key>
+				<string>83f0b66496abd578d1c70fca2f6f1a6b204939a5</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/GoogleChrome/GoogleChromePkg.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>2de26c035de26d0a4d01ad46ff3d50c0f2d2f555920319c678a55412a42babf5</string>
+			</dict>
+			<key>com.github.autopkg.munki.googlechromepkg</key>
+			<dict>
+				<key>git_hash</key>
+				<string>d7e3bc33e02ac6b1e83caeb629d5d5e6c040ecfe</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes/GoogleChrome/GoogleChromePkg.munki.recipe</string>
+				<key>sha256_hash</key>
+				<string>0cc8792e712596a645dc887426dbdc0aafd33eb6a2fb07bbeb52f7c709768ff0</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>
