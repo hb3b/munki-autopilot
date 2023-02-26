@@ -10,7 +10,7 @@ repo = git.Repo('munki_repo')
 existing_branches = [ x.name[7:] for x in repo.remote().refs ]
 
 print(existing_branches)
-recipes = ['Slack.munki.recipe']
+recipes = ['GoogleChromePkg.munki.recipe']
 
 for recipe in recipes:
     output = '/tmp/autopkg.plist'
