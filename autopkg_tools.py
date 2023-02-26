@@ -23,22 +23,23 @@ for recipe in recipes:
     print(report_data)
 
     if 'summary_results' in report_data:
-        package_name = report_data['summary_results']['munki_importer_summary_result']['data_rows'][0]['name']
-        package_version = report_data['summary_results']['munki_importer_summary_result']['data_rows'][0]['version']
-        package_info = report_data['summary_results']['munki_importer_summary_result']['data_rows'][0]['pkginfo_path']
+        if 'munki_importer_summary_result' in report_data['summary_result']:
+            package_name = report_data['summary_results']['munki_importer_summary_result']['data_rows'][0]['name']
+            package_version = report_data['summary_results']['munki_importer_summary_result']['data_rows'][0]['version']
+            package_info = report_data['summary_results']['munki_importer_summary_result']['data_rows'][0]['pkginfo_path']
 
-        branch = f'{package_name}-{package_version}'
+            branch = f'{package_name}-{package_version}'
 
-        if branch not in existing_branches:
-            current = repo.create_head(branch)
-            current.checkout()
+            if branch not in existing_branches:
+                current = repo.create_head(branch)
+                current.checkout()
 
-            repo.git.add('pkgsinfo/' + package_info)
-            repo.git.commit(m=f'Updated {package_name} to {package_version}')
+                repo.git.add('pkgsinfo/' + package_info)
+                repo.git.commit(m=f'Updated {package_name} to {package_version}')
 
-            repo.git.push("origin", branch)
-        else:
-            print("not running because branch/pr already exists")
+                repo.git.push("origin", branch)
+            else:
+                print("not running because branch/pr already exists")
 
     repo.git.reset('--hard','origin/main')
     repo.heads.main.checkout()
